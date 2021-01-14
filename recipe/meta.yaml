@@ -1,4 +1,4 @@
-{% set version = "2.0.21" %}
+{% set version = "2.0.24" %}
 
 package:
   name: conmon
@@ -6,13 +6,13 @@ package:
 
 source:
   url: https://github.com/containers/conmon/archive/v{{ version }}.tar.gz
-  sha256: 03c357c2ee35317e781111d59c4f3fb34033e77a17a8f4221f2ed6d3bcc10c25
+  sha256: e00bc44a8bd783fd417a5c90d3b8c15035ddc69b18350a31258e7f79aec8c697
   patches:
     - 0001-Add-missing-defines-for-CentOS-6.patch
 
 build:
   number: 0
-  skip: True  # [not linux]
+  skip: true  # [not linux]
 
 requirements:
   build:
