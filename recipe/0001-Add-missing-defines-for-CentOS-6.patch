@@ -14,3 +14,19 @@ index e43dc68..d3c42b6 100644
  int main(int argc, char *argv[])
  {
         _cleanup_gerror_ GError *err = NULL;
+diff --git a/src/conn_sock.c.orig b/src/conn_sock.c
+index 02aee70..7052ea9 100644
+--- a/src/conn_sock.c
++++ b/src/conn_sock.c
+@@ -13,6 +13,11 @@
+ #include <sys/un.h>
+ #include <sys/stat.h>
+ 
++/* NB: O_PATH was introduced in Linux 2.6.39 and is not available on CentOS 6. */
++#if !defined(O_PATH)
++#define O_PATH 010000000
++#endif
++
+ static gboolean attach_cb(int fd, G_GNUC_UNUSED GIOCondition condition, gpointer user_data);
+ static gboolean remote_sock_cb(int fd, GIOCondition condition, gpointer user_data);
+ static void init_remote_sock(struct remote_sock_s *sock, struct remote_sock_s *src);
