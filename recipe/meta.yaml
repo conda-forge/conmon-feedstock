@@ -1,4 +1,4 @@
-{% set version = "2.0.21" %}
+{% set version = "2.0.26" %}
 
 package:
   name: conmon
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/containers/conmon/archive/v{{ version }}.tar.gz
-  sha256: 03c357c2ee35317e781111d59c4f3fb34033e77a17a8f4221f2ed6d3bcc10c25
+  sha256: 845744c3323bbf9adab4444d70fd7de0ceb12a578c9cf2fd2366c6bed0ac7970
   patches:
     - 0001-Add-missing-defines-for-CentOS-6.patch
 
@@ -20,13 +20,11 @@ requirements:
     - make
     - pkg-config
   host:
-    # NOTE: The conda-forge-pinning is at version 2.58 (as of 2020-11-04).
-    #       Only versions `>=2.66.1` have the the libglib split.
-    #       TODO: Remove version constraint once pinning is updated.
-    - glib >=2.0
     # Header+pkgconfig files for libglib are in the glib package.
+    - glib
     # Explicitly depend on libglib to avoid glib run_exports from older builds.
     - libglib >=2.0
+    - libglib
   run:
 
 test:
