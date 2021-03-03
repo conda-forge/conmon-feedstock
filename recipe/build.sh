@@ -4,4 +4,7 @@
 # CentOS 7+ shouldn't need this anymore.
 make \
   LIBS+=-lrt \
-  install
+  install.bin
+
+make -C docs \
+  GOMD2MAN=go-md2man

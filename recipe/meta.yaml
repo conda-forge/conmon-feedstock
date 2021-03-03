@@ -17,6 +17,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - go-md2man
     - make
     - pkg-config
   host:
