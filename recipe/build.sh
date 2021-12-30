@@ -4,6 +4,7 @@
 # CentOS 7+ shouldn't need this anymore.
 make \
   LIBS+=-lrt \
+  CFLAGS+="-I$BUILD_PREFIX/include" \
   install.bin
 
 make -C docs \
