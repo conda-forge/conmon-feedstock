@@ -1,24 +1,25 @@
 diff --git a/src/seccomp_notify.c b/src/seccomp_notify.c
-index f6c755d..e672df0 100644
+index bbc06dd..fa94546 100644
 --- a/src/seccomp_notify.c
 +++ b/src/seccomp_notify.c
-@@ -8,7 +8,6 @@
- #include <errno.h>
- #include <seccomp.h>
- #include <sys/ioctl.h>
--#include <linux/seccomp.h>
+@@ -20,7 +20,6 @@
+ #ifdef USE_SECCOMP
+ 
  #include <sys/sysmacros.h>
- #include <dlfcn.h>
- #include <sys/wait.h>
+-#include <linux/seccomp.h>
+ #include <seccomp.h>
+ 
+ #include "seccomp_notify.h"
 diff --git a/src/seccomp_notify_plugin.h b/src/seccomp_notify_plugin.h
-index b8c660a..16e4d7b 100644
+index ab590b1..5598f20 100644
 --- a/src/seccomp_notify_plugin.h
 +++ b/src/seccomp_notify_plugin.h
-@@ -1,6 +1,6 @@
- #ifndef SECCOMP_NOTIFY_PLUGIN_H
+@@ -2,7 +2,7 @@
+ 
+ #ifdef USE_SECCOMP
  
 -#include <linux/seccomp.h>
 +#include <seccomp.h>
  
- #ifdef USE_SECCOMP
- 
+ struct seccomp_notify_conf_s {
+ 	const char *runtime_root_path;
