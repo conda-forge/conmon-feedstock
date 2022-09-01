@@ -1,8 +1,8 @@
 diff --git a/src/conmon.c b/src/conmon.c
-index 7f9edf9..0afbb0e 100644
+index ade1af7..8acbe96 100644
 --- a/src/conmon.c
 +++ b/src/conmon.c
-@@ -35,6 +35,11 @@ static void disconnect_std_streams(int dev_null_r, int dev_null_w)
+@@ -34,6 +34,11 @@ static void disconnect_std_streams(int dev_null_r, int dev_null_w)
  		pexit("Failed to dup over stderr");
  }
  
@@ -15,7 +15,7 @@ index 7f9edf9..0afbb0e 100644
  {
  	setlocale(LC_ALL, "");
 diff --git a/src/conn_sock.c b/src/conn_sock.c
-index 7734b0a..6991ede 100644
+index 11309ee..69f2545 100644
 --- a/src/conn_sock.c
 +++ b/src/conn_sock.c
 @@ -14,6 +14,11 @@
@@ -31,11 +31,11 @@ index 7734b0a..6991ede 100644
  static gboolean remote_sock_cb(int fd, GIOCondition condition, gpointer user_data);
  static void init_remote_sock(struct remote_sock_s *sock, struct remote_sock_s *src);
 diff --git a/src/ctr_exit.c b/src/ctr_exit.c
-index a617df2..65e583a 100644
+index 9c9d19b..db4c858 100644
 --- a/src/ctr_exit.c
 +++ b/src/ctr_exit.c
 @@ -15,6 +15,11 @@
- #include <sys/prctl.h>
+ #include <stdlib.h>
  #include <unistd.h>
  
 +/* NB: PR_{SET,GET}_CHILD_SUBREAPER were introduced in Linux 3.4 and are not available on CentOS 6. */
