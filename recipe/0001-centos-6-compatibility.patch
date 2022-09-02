@@ -1,0 +1,57 @@
+diff --git a/src/conn_sock.c b/src/conn_sock.c
+index 11309ee..69f2545 100644
+--- a/src/conn_sock.c
++++ b/src/conn_sock.c
+@@ -14,6 +14,11 @@
+ #include <sys/un.h>
+ #include <sys/stat.h>
+ 
++/* NB: O_PATH was introduced in Linux 2.6.39 and is not available on CentOS 6. */
++#if !defined(O_PATH)
++#define O_PATH 010000000
++#endif
++
+ static gboolean attach_cb(int fd, G_GNUC_UNUSED GIOCondition condition, gpointer user_data);
+ static gboolean remote_sock_cb(int fd, GIOCondition condition, gpointer user_data);
+ static void init_remote_sock(struct remote_sock_s *sock, struct remote_sock_s *src);
+diff --git a/src/seccomp_notify.c b/src/seccomp_notify.c
+index bbc06dd..fa94546 100644
+--- a/src/seccomp_notify.c
++++ b/src/seccomp_notify.c
+@@ -20,7 +20,6 @@
+ #ifdef USE_SECCOMP
+ 
+ #include <sys/sysmacros.h>
+-#include <linux/seccomp.h>
+ #include <seccomp.h>
+ 
+ #include "seccomp_notify.h"
+diff --git a/src/seccomp_notify_plugin.h b/src/seccomp_notify_plugin.h
+index ab590b1..5598f20 100644
+--- a/src/seccomp_notify_plugin.h
++++ b/src/seccomp_notify_plugin.h
+@@ -2,7 +2,7 @@
+ 
+ #ifdef USE_SECCOMP
+ 
+-#include <linux/seccomp.h>
++#include <seccomp.h>
+ 
+ struct seccomp_notify_conf_s {
+ 	const char *runtime_root_path;
+diff --git a/src/utils.c b/src/utils.c
+index e7adc1b..824d7a1 100644
+--- a/src/utils.c
++++ b/src/utils.c
+@@ -12,6 +12,11 @@
+ #include <sys/event.h>
+ #endif
+ 
++/* NB: PR_{SET,GET}_CHILD_SUBREAPER were introduced in Linux 3.4 and are not available on CentOS 6. */
++#ifndef PR_SET_CHILD_SUBREAPER
++#define PR_SET_CHILD_SUBREAPER 36
++#endif
++
+ log_level_t log_level = WARN_LEVEL;
+ char *log_cid = NULL;
+ gboolean use_syslog = FALSE;
