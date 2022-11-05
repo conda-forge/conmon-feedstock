@@ -26,7 +26,6 @@ requirements:
     - glib
     # Explicitly depend on libglib to avoid glib run_exports from older builds.
     - libglib >=2.0
-    - libglib
   run:
 
 test:
