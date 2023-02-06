@@ -12,5 +12,7 @@ docker_image:
 - quay.io/condaforge/linux-anvil-ppc64le
 glib:
 - '2'
+go_compiler:
+- go-nocgo
 target_platform:
 - linux-ppc64le
