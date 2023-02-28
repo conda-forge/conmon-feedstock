@@ -1,4 +1,4 @@
-{% set version = "2.1.6" %}
+{% set version = "2.1.7" %}
 
 package:
   name: conmon
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/containers/conmon/archive/v{{ version }}.tar.gz
-  sha256: 340453f7aac43e6a1f9a5efe31f24471f8a7a997a849ad6d1ff3fb530a9e2874
+  sha256: 7d0f9a2f7cb8a76c51990128ac837aaf0cc89950b6ef9972e94417aa9cf901fe
   patches:
     - 0001-centos-6-compatibility.patch
 
