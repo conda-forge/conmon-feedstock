@@ -1,11 +1,11 @@
-About conmon
-============
+About conmon-feedstock
+======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/conmon-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/containers/conmon
 
 Package license: Apache-2.0
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/conmon-feedstock/blob/main/LICENSE.txt)
 
 Summary: An OCI container runtime monitor.
 
